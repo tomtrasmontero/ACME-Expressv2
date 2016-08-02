@@ -18,7 +18,7 @@
 	<ul class="list-group">
 		{% for item in items %}
 		
-		<li class="list-group-item"> {{ item }}		
+		<li class="list-group-item" style="margin-bottom: 10px"> {{ item }}		
 			<form method="POST" class="pull-right" style="display:inline" action="/products/{{ category }}/{{ item }}?_method=DELETE">
 			<button type="submit" class="btn btn-danger">Delete Item</button>
 			</form>
