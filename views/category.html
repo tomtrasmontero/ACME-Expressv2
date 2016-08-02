@@ -1,0 +1,31 @@
+{% extends './layout.html' %}
+{% block main %}
+	
+
+			<!-- delete categories -->
+	<form method="POST" action="/products/{{ category }}?_method=DELETE">
+	<button type="submit" class="btn btn-danger"> Delete Category</button>
+	</form>
+			<!-- insert categories -->
+	<form method="POST" action="/products/{{ category }}/addproduct">
+		<div class="form-group">
+			<label for="text_field">Product Name </label>
+			<input class="form-control" name="content" type="text" id="text_field">
+		</div>
+			<input type="submit" value="Insert Product ">
+	</form>	
+
+	<ul class="list-group">
+		{% for item in items %}
+		
+		<li class="list-group-item"> {{ item }}		
+			<form method="POST" class="pull-right" style="display:inline" action="/products/{{ category }}/{{ item }}?_method=DELETE">
+			<button type="submit" class="btn btn-danger">Delete Item</button>
+			</form>
+			<br clear="all">
+		</li>
+
+		{% endfor %}
+	</ul>	
+
+{% endblock %}

@@ -10,6 +10,10 @@
   "author": "Tom Trasmontero",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "swig": "^1.4.2"
   }
 }
