@@ -60,7 +60,6 @@ module.exports = {
 
 	deleteProduct:function(item, category){
 		var idx = this.getProductIdx(item ,category);
-		console.log(idx)
 		delete data[category][idx];
 	}
 
