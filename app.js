@@ -38,7 +38,7 @@ app.get('/', function (req, res, next){
 });
 
 //set up product page routes
-app.use('/products', require('./routes/categories'));
+app.use('/categories', require('./routes/categories'));
 
 //set up port to listen
 app.listen(process.env.PORT, function (){

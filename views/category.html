@@ -3,23 +3,23 @@
 	
 
 			<!-- delete categories -->
-	<form method="POST" action="/products/{{ category }}?_method=DELETE">
+	<form method="POST" action="/categories/{{ category }}?_method=DELETE">
 	<button type="submit" class="btn btn-danger"> Delete Category</button>
 	</form>
 			<!-- insert categories -->
-	<form method="POST" action="/products/{{ category }}/addproduct">
+	<form method="POST" action="/categories/{{ category }}/products">
 		<div class="form-group">
 			<label for="text_field">Product Name </label>
-			<input class="form-control" name="content" type="text" id="text_field">
+			<input class="form-control" name="name" type="text" id="text_field">
 		</div>
-			<input type="submit" value="Insert Product ">
+    <button class='btn btn-primary' type="submit">Insert Product</button>
 	</form>	
 
 	<ul class="list-group">
-		{% for item in items %}
+		{% for idx, product in products %}
 		
-		<li class="list-group-item" style="margin-bottom: 10px"> {{ item }}		
-			<form method="POST" class="pull-right" style="display:inline" action="/products/{{ category }}/{{ item }}?_method=DELETE">
+		<li class="list-group-item" style="margin-bottom: 10px"> {{ product.name }}		
+			<form method="POST" class="pull-right" style="display:inline" action="/categories/{{ category }}/products/{{ idx }}?_method=DELETE">
 			<button type="submit" class="btn btn-danger">Delete Item</button>
 			</form>
 			<br clear="all">

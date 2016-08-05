@@ -11,16 +11,8 @@ var data = {
 
 module.exports = {	
 	
-	getProductIdx: function(item,category){
-		var idx;
-		data[category].findIndex(function(element,index){
-			if(element.name === item){
-				idx = index;
-			};
-		});
-		return idx;
-	},
 //Why does this not work?
+// dunno - never used find index
 /*
 	getProductIdx: function(item,category){
 		return data[category].findIndex(function(element,index){
@@ -37,30 +29,24 @@ module.exports = {
 	},
 
 	getProducts: function(name){
-		var items = [];
-		data[name].map(function(obj){
-			items.push(obj.name); 
-		});
-		return items;
+    return data[name];
 	},
 
 	addCategory: function(name){
-		if(data[name] == null){
+		if(!data[name]){
 			data[name] = [];			
 		}
 	},
-
 	deleteCategory: function(product){
 		delete data[product];
 	},
 
-	addProduct: function(newProduct, category){
-		data[category].push({name: newProduct});
+	addProduct: function(name, category){
+		data[category].push({name: name});
 	},
 
-	deleteProduct:function(item, category){
-		var idx = this.getProductIdx(item ,category);
+	deleteProduct:function(idx, category){
 		delete data[category][idx];
 	}
 
-}
+};

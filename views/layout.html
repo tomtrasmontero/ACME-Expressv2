@@ -5,13 +5,13 @@
 	</head>
 	<body>
 		<ul class='nav nav-tabs' style='margin-bottom:10px'>
-			<li>
+      <li {% if !category %} class='active' {% endif %}>
 				<a href='/'>Home</a>
 			</li>
 			
-			{% for product in categories %}
-			<li class='list-group'>
-				<a href='/products/{{ product }}'>{{ product }}</a>
+			{% for _category in categories %}
+			<li {% if _category === category %} class='active' {% endif %}>
+				<a href='/categories/{{ _category }}'>{{ _category }}</a>
 			</li>
 			{% endfor %}
 
